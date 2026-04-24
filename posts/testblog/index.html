@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Testblog | 我的个人博客</title>
+<title>Testblog | JavaStudy</title>
 <meta name="keywords" content="">
 <meta name="description" content="testblog">
 <meta name="author" content="">
@@ -65,7 +65,7 @@
     }
 
 </script><meta property="og:url" content="https://tan2364130768-jpg.github.io/posts/testblog/">
-  <meta property="og:site_name" content="我的个人博客">
+  <meta property="og:site_name" content="JavaStudy">
   <meta property="og:title" content="Testblog">
   <meta property="og:description" content="testblog">
   <meta property="og:locale" content="zh_cn">
@@ -120,7 +120,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "我的个人博客",
+    "name": "JavaStudy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://tan2364130768-jpg.github.io/favicon.ico"
@@ -133,7 +133,7 @@
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="https://tan2364130768-jpg.github.io/" accesskey="h" title="我的个人博客 (Alt + H)">我的个人博客</a>
+            <a href="https://tan2364130768-jpg.github.io/" accesskey="h" title="JavaStudy (Alt + H)">JavaStudy</a>
             <div class="logo-switches">
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -158,6 +158,21 @@
             </div>
         </div>
         <ul id="menu" class="menu">
+            <li>
+                <a href="https://tan2364130768-jpg.github.io/search" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://tan2364130768-jpg.github.io/categories" title="📂 分类">
+                    <span>📂 分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://tan2364130768-jpg.github.io/tags" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -186,7 +201,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://tan2364130768-jpg.github.io/">我的个人博客</a></span> · 
+        <span>&copy; 2026 <a href="https://tan2364130768-jpg.github.io/">JavaStudy</a></span> · 
 
     <span>
         Powered by
@@ -260,6 +275,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
